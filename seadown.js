@@ -126,6 +126,8 @@ button.onclick = function() {getList('/')};
 document.getElementsByClassName("d-flex justify-content-between align-items-center op-bar")[0]
 .appendChild(button);
 
+//明天添加三个平台的脚本，添加文件大小info，提供三个选项（计算大小，文件下载，zip下载），添加开头的说明，下载仅限于当前打开的网页
+
 
 
 function main()
