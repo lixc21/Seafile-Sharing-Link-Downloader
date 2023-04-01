@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name Download all files (one-click) for Tsinghua seafile
+// @name Download all files (one-click) from Tsinghua seafile sharing link
 // @description Files from Tsinghua seafile cloud sharing link may not be downloaded with one click because the file directory exceeds the limit. This script overcomes this shortcoming and realizes one-click download.
 // @copyright 2023, lixc21 (https://github.com/lixc21/)
 // @license MIT
