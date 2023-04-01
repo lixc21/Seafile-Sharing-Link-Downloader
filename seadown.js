@@ -127,7 +127,7 @@ button.onclick = function(){getList(window.shared.pageOptions.relativePath);};
 document.getElementsByClassName("d-flex justify-content-between align-items-center op-bar")[0]
 .appendChild(button);
 
-// init button
+// init info
 var div = document.createElement('div');
 div.style = "color: #00F; font-size: 10px; font-weight:bold;";
 div.textContent = "You are using one-click-download script for seafile sharing link. Click \"Super Download\" to download all the files in this path.";
@@ -137,11 +137,5 @@ var div = document.createElement('div');
 div.style = "color: #00F; font-size: 10px; font-weight:bold;";
 div.textContent = "NOTICE: This script temporarily stores files in memory.";
 info.prepend(div)
-
-
-
-
-function main()
-{}
 
 })();
