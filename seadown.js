@@ -1,16 +1,16 @@
-// ==UserScript==
-// @name         One-click download all file for Tsinghua seafile 
-// @namespace   
+// @name One-click download all file for Tsinghua seafile
 // @description Files from Tsinghua seafile cloud sharing link may not be downloaded with one click because the file directory exceeds the limit. This script overcomes this shortcoming and realizes one-click download.
-// @include     
-// @author      lixc21
-// @version     1.0
-// @match       https://cloud.tsinghua.edu.cn/*
-// @grant       
-// @run-at      
-// @license     MIT
-// ==/UserScript==
- 
+// @copyright 2023, lixc21 (Author Website)
+// @license MIT License
+// @icon none
+// @homepageURL https://github.com/lixc21/Seafile-Sharing-Link-Downloader
+// @supportURL https://github.com/lixc21/Seafile-Sharing-Link-Downloader
+// @contributionURL https://github.com/lixc21/Seafile-Sharing-Link-Downloader
+// @version 1.0.0
+// @updateURL https://openuserjs.org/meta/lixc21/My_Script.meta.js
+// @author lixc21
+// @collaborator none
+
 (function()
 {
 'use strict';
@@ -103,30 +103,41 @@ function saveFileZip(fileMeta)
 		{
 			zip.generateAsync({type:"blob"})
 			.then(function (blob){saveAs(blob, dirMain + ".zip");});
-			infoMsg("DONE! DONELOAD *.ZIP FILE.");
+			infoMsg("DONE! DONELOAD *.ZIP FILE.", "#00F");
 		}
 	};
 	xmlHttpRequest.send();
 }
 
 // info
-function infoMsg(msg)
+function infoMsg(msg, color="#777")
 {
 	var div = document.createElement('div');
-	div.style = "color: #777; font-size: 10px";
-	div.textContent = Date().toString() + " " + msg;
+	div.style = "color: " + color + "; font-size: 10px";
+	div.textContent = "[" + Date().toString() + "] " + msg;
 	info.prepend(div)
 }
 
+// add button
 var button = document.createElement('button');
 button.type = 'button';
-button.innerHTML = 'ALL FILES ZIP';
+button.innerHTML = 'Super Download';
 button.className = 'ml-2 shared-dir-op-btn btn btn-success';
-button.onclick = function() {getList('/')};
+button.onclick = function(){getList(window.shared.pageOptions.relativePath);};
 document.getElementsByClassName("d-flex justify-content-between align-items-center op-bar")[0]
 .appendChild(button);
 
-//明天添加三个平台的脚本，添加文件大小info，提供三个选项（计算大小，文件下载，zip下载），添加开头的说明，下载仅限于当前打开的网页
+// init button
+var div = document.createElement('div');
+div.style = "color: #00F; font-size: 10px; font-weight:bold;";
+div.textContent = "You are using one-click-download script for seafile sharing link. Click \"Super Download\" to download all the files in this path.";
+info.prepend(div)
+
+var div = document.createElement('div');
+div.style = "color: #00F; font-size: 10px; font-weight:bold;";
+div.textContent = "NOTICE: This script temporarily stores files in memory.";
+info.prepend(div)
+
 
 
 
