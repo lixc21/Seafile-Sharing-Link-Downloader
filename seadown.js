@@ -126,13 +126,23 @@ document.getElementsByClassName("d-flex justify-content-between align-items-cent
 	.appendChild(button);
 
 // init info
-infoMsg(" ");
 var div = document.createElement('div');
+div.style = "color: #FFF; font-size: 10px; font-weight:bold;";
+div.textContent = "#";
+info.prepend(div)
+
+var div = document.createElement('div');
+div.style = "color: #00F; font-size: 10px; font-weight:bold;";
 div.textContent = "NOTICE: This script temporarily stores files in memory.";
 info.prepend(div)
+
+var div = document.createElement('div');
+div.style = "color: #00F; font-size: 10px; font-weight:bold;";
 div.textContent = "Click \"Super Download\" to download all the files in this path.";
 info.prepend(div)
-div.textContent = "You are using one-click-download script for seafile sharing link.";
+
+var div = document.createElement('div');
+div.style = "color: #FFF; font-size: 10px; font-weight:bold;";
+div.textContent = "#";
 info.prepend(div)
-infoMsg(" ");
 })();
