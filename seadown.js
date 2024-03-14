@@ -79,7 +79,7 @@ function saveFileZip(fileMeta) {
 	var xmlHttpRequest = new XMLHttpRequest();
 	var path = fileMeta["file_path"];
 	console.log(fileMeta);
-	var url = cloudDomain + "/d/" + sharingLinkID + "/files/?p=" + path + "&dl=1";
+	var url = cloudDomain + "/d/" + sharingLinkID + "/files/?p=" + encodeURIComponent(path) + "&dl=1";
 	xmlHttpRequest.open('GET', url);
 	xmlHttpRequest.responseType = 'blob';
 	xmlHttpRequest.onload = function () {
