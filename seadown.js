@@ -30,7 +30,7 @@ var info = document.getElementsByClassName("shared-dir-view-main")[0];
 
 // get file and dir list, then download all and save
 function getList(path) {
-	var url = cloudDomain + "/api/v2.1/share-links/" + sharingLinkID + "/dirents/?path=" + path;
+	var url = cloudDomain + "/api/v2.1/share-links/" + sharingLinkID + "/dirents/?path=" + encodeURIComponent(path);
 	console.log('request: ' + url);
 	var xmlHttpRequest = new XMLHttpRequest();
 	xmlHttpRequest.open('GET', url);
